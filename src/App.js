@@ -30,7 +30,7 @@ class App extends Component {
       todos: [...this.state.todos, this.state.newTodo],
       newTodo: ""
     });
-  };
+  }
 
   render() {
     return (
@@ -40,6 +40,14 @@ class App extends Component {
           <div>
             <li key={todo}>
               {todo + " "}
+              <form onSubmit={this.handleSubmit}>
+                <input
+                  type="text"
+                  value={this.state.newTodo}
+                  onChange={this.handleChange}
+                />
+                <button onClick={this.handleSubmit}> + </button>
+              </form>
               <button  value={todo} onClick={this.handleDelete}>X</button>
             </li>
           </div>
